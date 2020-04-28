@@ -1,42 +1,78 @@
-
-// Fireup the plugins
-$(document).ready(function(){
-	
-	// initialise  slideshow
-	 $('.flexslider').flexslider({
-        animation: "slide",
-        start: function(slider){
-          $('body').removeClass('loading');
-        }
-      });
-
-});
-/**
- * Handles toggling the navigation menu for small screens.
- */
-( function() {
-	var button = document.getElementById( 'topnav' ).getElementsByTagName( 'div' )[0],
-	    menu   = document.getElementById( 'topnav' ).getElementsByTagName( 'ul' )[0];
-
-	if ( undefined === button )
-		return false;
-
-	// Hide button if menu is missing or empty.
-	if ( undefined === menu || ! menu.childNodes.length ) {
-		button.style.display = 'none';
-		return false;
+$(document).ready(function()
+{
+	if ($("#alertSuccess").text().trim() == "")
+	{
+		$("#alertSuccess").hide();
 	}
+	
+	$("#alertError").hide();
+});
 
-	button.onclick = function() {
-		if ( -1 == menu.className.indexOf( 'srt-menu' ) )
-			menu.className = 'srt-menu';
 
-		if ( -1 != button.className.indexOf( 'toggled-on' ) ) {
-			button.className = button.className.replace( ' toggled-on', '' );
-			menu.className = menu.className.replace( ' toggled-on', '' );
-		} else {
-			button.className += ' toggled-on';
-			menu.className += ' toggled-on';
-		}
-	};
-} )();
+// SAVE ============================================
+$(document).on("click", "#btnSave", function(event)
+{
+	// Clear alerts---------------------
+	$("#alertSuccess").text("");
+	$("#alertSuccess").hide();
+	$("#alertError").text("");
+	$("#alertError").hide();
+	
+	// Form validation-------------------
+	var status = validateItemForm();
+	
+	if (status != true)
+	{
+		$("#alertError").text(status);
+		$("#alertError").show();
+		return;
+	}
+	
+	// If valid------------------------
+	$("#formItem").submit();
+});
+
+
+// UPDATE==========================================
+$(document).on("click", ".btnUpdate", function(event)
+{
+	$("#hidItemIDSave").val($(this).closest("tr").find('#hidItemIDUpdate').val());
+	$("#hospitalName").val($(this).closest("tr").find('td:eq(1)').text());
+	$("#docName").val($(this).closest("tr").find('td:eq(2)').text());
+	$("#age").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#spec").val($(this).closest("tr").find('td:eq(4)').text());
+	$("#arrive").val($(this).closest("tr").find('td:eq(5)').text());
+	$("#leave").val($(this).closest("tr").find('td:eq(6)').text());
+});
+
+
+// CLIENTMODEL=========================================================================
+function validateItemForm()
+{
+	if ($("#hospitalName").val().trim() == "")
+	{
+		return "Insert Item Hospital Name.";
+	}
+	
+	if ($("#age").val().trim() == "")
+	{
+		return "Insert Age.";
+	}
+	
+	if ($("#spec").val().trim() == "")
+	{
+		return "Insert Item Specialization";
+	}
+	
+	if ($("#arrive").val().trim() == "")
+	{
+		return "Insert Arrive Time";
+	}
+	
+	if ($("#leave").val().trim() == "")
+	{
+		return "Insert Leave Time";
+	}
+	
+	return true;
+}
