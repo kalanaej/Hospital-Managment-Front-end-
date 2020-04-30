@@ -30,7 +30,7 @@ public class Doctor {
 			}*/
 			
 			// create a prepared statement
-			String query = " insert into doctors(`DoctorID`, `HospitalName`, `DoctorName`, `Age`, `Specialization`, `ArriveTime`, `LeaveTime`)"+ " values (?, ?, ?, ?, ?, ?, ?)";
+			String query = " insert into doctors(`DoctorID`, `HospitalName`, `DoctorName`, `Age`, `Specialization`, `ArriveTime`, `LeaveTime`) values (?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			
 			
@@ -54,7 +54,7 @@ public class Doctor {
 		catch (Exception e)
 		{
 			output = "{\"status\":\"error\", \"data\": \"Error while inserting the item.\"}";
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 		}
 		
 		return output;
@@ -127,7 +127,7 @@ public class Doctor {
 		catch (Exception e)
 		{
 			output = "Error while reading the doctor.";
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 		}
 		
 		return output;
@@ -182,7 +182,7 @@ public class Doctor {
 		catch (Exception e)
 		{
 			output = "{\"status\":\"error\", \"data\": \"Error while updating the item.\"}";
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 		}
 		
 		return output;
@@ -193,6 +193,7 @@ public class Doctor {
 	public String deleteDoctor(String docID)
 	{
 		String output = "";
+		
 		try
 		{
 			DBConnect db = new DBConnect();
@@ -221,7 +222,7 @@ public class Doctor {
 		catch (Exception e)
 		{
 			output = "{\"status\":\"error\", \"data\": \"Error while deleting the item.\"}";
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 		}
 		
 		return output;

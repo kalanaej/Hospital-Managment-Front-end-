@@ -8,7 +8,6 @@ $(document).ready(function()
 	$("#alertError").hide();
 });
 
-
 // SAVE ============================================
 $(document).on("click", "#btnSave", function(event)
 {
@@ -17,24 +16,24 @@ $(document).on("click", "#btnSave", function(event)
 	$("#alertSuccess").hide();
 	$("#alertError").text("");
 	$("#alertError").hide();
-	
+			
 	// Form validation-------------------
 	var status = validateItemForm();
-	
+			
 	if (status != true)
 	{
 		$("#alertError").text(status);
 		$("#alertError").show();
 		return;
 	}
-	
+			
 	// If valid------------------------
-	var method = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
-
+	var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
+			
 	$.ajax(
 	{
 		url : "DoctorsAPI",
-		type : method,
+		type : type,
 		data : $("#formItem").serialize(),
 		dataType : "text",
 		complete : function(response, status)
@@ -59,21 +58,11 @@ $(document).on("click", ".btnUpdate", function(event)
 
 function onItemSaveComplete(response, status)
 {
+	//location.reload();
 	if (status == "success")
 	{
-		var resultSet = JSON.parse(response);
-		
-		if (resultSet.status.trim() == "success")
-		{
-			$("#alertSuccess").text("Successfully saved.");
-			$("#alertSuccess").show();
-			$("#divItemsGrid").html(resultSet.data);
-		} 
-		else if (resultSet.status.trim() == "error")
-		{
-			$("#alertError").text(resultSet.data);
-			$("#alertError").show();
-		}
+		$("#alertSuccess").text("Successfully saved.");
+		$("#alertSuccess").show();
 	} 
 	else if (status == "error")
 	{
@@ -85,9 +74,7 @@ function onItemSaveComplete(response, status)
 		$("#alertError").text("Unknown error while saving..");
 		$("#alertError").show();
 	}
-	
-	$("#hidItemIDSave").val("");
-	$("#formItem")[0].reset();
+	location.reload();
 }
 
 $(document).on("click", ".btnRemove", function(event)
@@ -109,19 +96,8 @@ function onItemDeleteComplete(response, status)
 {
 	if (status == "success")
 	{
-		var resultSet = JSON.parse(response);
-		
-		if (resultSet.status.trim() == "success")
-		{
-			$("#alertSuccess").text("Successfully deleted.");
-			$("#alertSuccess").show();
-			$("#divItemsGrid").html(resultSet.data);
-		} 
-		else if (resultSet.status.trim() == "error")
-		{
-			$("#alertError").text(resultSet.data);
-			$("#alertError").show();
-		}
+		$("#alertSuccess").text("Successfully deleted.");
+		$("#alertSuccess").show();
 	} 
 	else if (status == "error")
 	{
@@ -133,6 +109,7 @@ function onItemDeleteComplete(response, status)
 		$("#alertError").text("Unknown error while deleting..");
 		$("#alertError").show();
 	}
+	location.reload();
 }
 
 //CLIENTMODEL=========================================================================
