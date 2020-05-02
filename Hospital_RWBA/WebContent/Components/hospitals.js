@@ -142,7 +142,7 @@ function onHospitalDeleteComplete(response, status)
 	} 
 	else
 	{
-		$("#alertError").text("Unknown error while deleting..");
+		$("#alertError").text("Unknown error while deleting.");
 		$("#alertError").show();
 	}
 	
