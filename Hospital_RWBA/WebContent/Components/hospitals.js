@@ -78,7 +78,7 @@ function onHospitalSaveComplete(response, status)
 	$("#hidHospitalIDSave").val("");
 	$("#formHospital")[0].reset();
 	
-	location.reload();
+	//location.reload();
 	
 }
 
