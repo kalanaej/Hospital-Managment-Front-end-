@@ -25,7 +25,7 @@
 			 <br> Email Address:
 			 <input id="emailAddress" name="emailAddress" type="text"
 			 class="form-control form-control-sm">
-			 <br> Manager Name:
+			 <br> Manager Namee:
 			 <input id="managerName" name="managerName" type="text"
 			 class="form-control form-control-sm">
 			 <br>
