@@ -42,6 +42,7 @@ public class Doctor {
 			
 			String newDoctors = readDoctors();
 			output = "{\"status\":\"success\", \"data\": \"" + newDoctors + "\"}";
+			
 		}
 		catch (Exception e)
 		{
