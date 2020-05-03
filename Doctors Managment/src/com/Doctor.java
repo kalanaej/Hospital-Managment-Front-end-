@@ -84,11 +84,10 @@ public class Doctor {
 			String query = "select * from doctors";
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
-			// iterate through the rows in the result set
 			
+			// iterate through the rows in the result set
 			while (rs.next())
 			{
-				//int docID = rs.getInt("DoctorID");
 				String docID = Integer.toString(rs.getInt("DoctorID"));
 				String hospitalName = rs.getString("HospitalName");
 				String docName = rs.getString("DoctorName");
@@ -98,7 +97,7 @@ public class Doctor {
 				String leave = rs.getString("LeaveTime");
 				
 				// Add into the html table
-				output += "<tr><td><input id='hidItemIDUpdate'name='hidItemIDUpdate' type='hidden' value='" + docID+ "'>" + hospitalName + "</td>";
+				output += "<tr><td><input id='hidDoctorIDUpdate'name='hidDoctorIDUpdate' type='hidden' value='" + docID+ "'>" + hospitalName + "</td>";
 				output += "<td>" + docName + "</td>";
 				output += "<td>" + age + "</td>";
 				output += "<td>" + spec + "</td>";

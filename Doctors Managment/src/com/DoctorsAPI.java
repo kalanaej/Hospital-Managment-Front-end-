@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -59,13 +58,13 @@ public class DoctorsAPI extends HttpServlet {
 		
 		Map paras = getParasMap(request);
 		
-		String output = doc.updateDoctor(paras.get("hidItemIDSave").toString(),
-										   paras.get("hospitalName").toString(),
-										   paras.get("docName").toString(),
-										   paras.get("age").toString(),
-										   paras.get("spec").toString(),
-										   paras.get("arrive").toString(),
-										   paras.get("leave").toString());
+		String output = doc.updateDoctor(paras.get("hidDoctorIDSave").toString(),
+										 paras.get("hospitalName").toString(),
+										 paras.get("docName").toString(),
+										 paras.get("age").toString(),
+										 paras.get("spec").toString(),
+										 paras.get("arrive").toString(),
+										 paras.get("leave").toString());
 		
 		response.getWriter().write(output);
 	}

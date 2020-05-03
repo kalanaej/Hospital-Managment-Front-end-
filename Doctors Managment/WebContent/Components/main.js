@@ -28,13 +28,13 @@ $(document).on("click", "#btnSave", function(event)
 	}
 			
 	// If valid------------------------
-	var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
+	var type = ($("#hidDoctorIDSave").val() == "") ? "POST" : "PUT";
 			
 	$.ajax(
 	{
 		url : "DoctorsAPI",
 		type : type,
-		data : $("#formItem").serialize(),
+		data : $("#formDoctor").serialize(),
 		dataType : "text",
 		complete : function(response, status)
 		{
@@ -46,7 +46,7 @@ $(document).on("click", "#btnSave", function(event)
 //UPDATE==========================================
 $(document).on("click", ".btnUpdate", function(event)
 {
-	$("#hidItemIDSave").val($(this).closest("tr").find('#hidItemIDUpdate').val());
+	$("#hidDoctorIDSave").val($(this).closest("tr").find('#hidDoctorIDUpdate').val());
 	$("#hospitalName").val($(this).closest("tr").find('td:eq(0)').text());
 	$("#docName").val($(this).closest("tr").find('td:eq(1)').text());
 	$("#age").val($(this).closest("tr").find('td:eq(2)').text());
@@ -65,7 +65,7 @@ function onItemSaveComplete(response, status)
 		{
 			$("#alertSuccess").text("Successfully saved.");
 			$("#alertSuccess").show();
-			$("#divItemsGrid").html(resultSet.data);
+			$("#divDoctorsGrid").html(resultSet.data);
 		} 
 		else if (resultSet.status.trim() == "error")
 		{
@@ -84,8 +84,8 @@ function onItemSaveComplete(response, status)
 		$("#alertError").show();
 	}
 	
-	$("#hidItemIDSave").val("");
-	$("#formItem")[0].reset();
+	$("#hidDoctorIDSave").val("");
+	$("#formDoctor")[0].reset();
 }
 
 $(document).on("click", ".btnRemove", function(event)
@@ -113,7 +113,7 @@ function onItemDeleteComplete(response, status)
 		{
 			$("#alertSuccess").text("Successfully deleted.");
 			$("#alertSuccess").show();
-			$("#divItemsGrid").html(resultSet.data);
+			$("#divDoctorsGrid").html(resultSet.data);
 		} 
 		else if (resultSet.status.trim() == "error")
 		{
@@ -148,6 +148,21 @@ function validateItemForm()
 	if ($("#age").val().trim() == "")
 	{
 		return "Insert Age.";
+	}
+	
+	
+	var age = $("#age").val().trim();
+	
+	// check age is numerical value
+	if (!$.isNumeric(age))
+	{
+		return "Insert a numerical value for Age.";
+	}
+	
+	// validate age range
+	if (age > 75 || age < 25)
+	{
+		return "Age should be between 25 and 75";
 	}
 	
 	if ($("#spec").val().trim() == "")
