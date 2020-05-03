@@ -112,7 +112,7 @@ public class Hospital {
 	   
 	 
 	   // Prepare the html table to be displayed    
-	output = "<table border=\"1\"><tr>"
+	output = "<table border='1'><tr>"
 			+ "<th>MOH Code</th>"
 			+ "<th>Hospital Name</th>"
 			+ "<th>Email</th>"

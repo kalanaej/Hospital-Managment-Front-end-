@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Items Management</title>
+<title>HOSPITAL Management</title>
 <link rel="stylesheet" href="Views/bootstrap.min.css">
 <script src="Components/jquery-3.2.1.min.js"></script>
 <script src="Components/hospitals.js"></script>
@@ -25,7 +25,7 @@
 			 <br> Email Address:
 			 <input id="emailAddress" name="emailAddress" type="text"
 			 class="form-control form-control-sm">
-			 <br> Manager Namee:
+			 <br> Manager Name:
 			 <input id="managerName" name="managerName" type="text"
 			 class="form-control form-control-sm">
 			 <br>
