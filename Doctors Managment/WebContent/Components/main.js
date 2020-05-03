@@ -17,7 +17,7 @@ $(document).on("click", "#btnSave", function(event)
 	$("#alertError").text("");
 	$("#alertError").hide();
 			
-	// Form validation-------------------
+	// Form validation-----------------
 	var status = validateItemForm();
 			
 	if (status != true)

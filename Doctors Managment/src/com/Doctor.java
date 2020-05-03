@@ -21,14 +21,6 @@ public class Doctor {
 				return "Error while connecting to the database for inserting."; 
 			}
 			
-			/*String query1 = "select hospitalName from hospital";
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(query1);
-			
-			if(rs.next()){
-				hospitalName = rs.getString("Name");
-			}*/
-			
 			// create a prepared statement
 			String query = " insert into doctors(`DoctorID`, `HospitalName`, `DoctorName`, `Age`, `Specialization`, `ArriveTime`, `LeaveTime`) values (?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
