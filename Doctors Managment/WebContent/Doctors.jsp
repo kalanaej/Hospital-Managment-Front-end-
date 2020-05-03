@@ -8,6 +8,7 @@
 <title>Doctors Management</title>
 
 <link rel="stylesheet" href="Views/bootstrap.min.css">
+<link rel="stylesheet" href="Views/Doctors.css">
 <script src="Components/jquery-3.2.1.min.js"></script>
 <script src="Components/main.js"></script>
 

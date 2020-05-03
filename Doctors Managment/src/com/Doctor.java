@@ -96,6 +96,8 @@ public class Doctor {
 				String arrive = rs.getString("ArriveTime");
 				String leave = rs.getString("LeaveTime");
 				
+				docName = docName.replace('+',' ');
+				
 				// Add into the html table
 				output += "<tr><td><input id='hidDoctorIDUpdate'name='hidDoctorIDUpdate' type='hidden' value='" + docID+ "'>" + hospitalName + "</td>";
 				output += "<td>" + docName + "</td>";
