@@ -58,11 +58,20 @@ $(document).on("click", ".btnUpdate", function(event)
 
 function onItemSaveComplete(response, status)
 {
-	//location.reload();
 	if (status == "success")
 	{
-		$("#alertSuccess").text("Successfully saved.");
-		$("#alertSuccess").show();
+		var resultSet = JSON.parse(response);
+		if (resultSet.status.trim() == "success")
+		{
+			$("#alertSuccess").text("Successfully saved.");
+			$("#alertSuccess").show();
+			$("#divItemsGrid").html(resultSet.data);
+		} 
+		else if (resultSet.status.trim() == "error")
+		{
+			$("#alertError").text(resultSet.data);
+			$("#alertError").show();
+		}
 	} 
 	else if (status == "error")
 	{
@@ -74,7 +83,9 @@ function onItemSaveComplete(response, status)
 		$("#alertError").text("Unknown error while saving..");
 		$("#alertError").show();
 	}
-	location.reload();
+	
+	$("#hidItemIDSave").val("");
+	$("#formItem")[0].reset();
 }
 
 $(document).on("click", ".btnRemove", function(event)
@@ -96,8 +107,19 @@ function onItemDeleteComplete(response, status)
 {
 	if (status == "success")
 	{
-		$("#alertSuccess").text("Successfully deleted.");
-		$("#alertSuccess").show();
+		var resultSet = JSON.parse(response);
+		
+		if (resultSet.status.trim() == "success")
+		{
+			$("#alertSuccess").text("Successfully deleted.");
+			$("#alertSuccess").show();
+			$("#divItemsGrid").html(resultSet.data);
+		} 
+		else if (resultSet.status.trim() == "error")
+		{
+			$("#alertError").text(resultSet.data);
+			$("#alertError").show();
+		}
 	} 
 	else if (status == "error")
 	{
@@ -109,9 +131,7 @@ function onItemDeleteComplete(response, status)
 		$("#alertError").text("Unknown error while deleting..");
 		$("#alertError").show();
 	}
-	location.reload();
 }
-
 //CLIENTMODEL=========================================================================
 function validateItemForm()
 {
