@@ -150,7 +150,6 @@ function validateItemForm()
 		return "Insert Age.";
 	}
 	
-	
 	var age = $("#age").val().trim();
 	
 	// check age is numerical value
