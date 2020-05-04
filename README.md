@@ -1,3 +1,3 @@
 # Hospital Managment [Front-end]
 
-Read the Doctor Management document before run the programm.
+Read the Doctor Management PDF before run the programm.
