@@ -133,7 +133,7 @@ function onItemDeleteComplete(response, status)
 		$("#alertError").show();
 	}
 }
-//CLIENTMODEL========================================================================
+//CLIENTMODEL=======================================================================
 function validateItemForm()
 {
 	if ($("#hospitalName").val().trim() == "")
