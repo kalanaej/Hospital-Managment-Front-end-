@@ -6,7 +6,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Doctors Management</title>
-
+<style>
+body {
+    background-image: url("Images/03-secrets-doctors-wont-tell-doc.jpg");
+    background-size:     cover;                     
+    background-repeat:   no-repeat;
+    background-position: center center; 
+}
+}
+</style>
 <link rel="stylesheet" href="Views/bootstrap.min.css">
 <link rel="stylesheet" href="Views/Doctors.css">
 <script src="Components/jquery-3.2.1.min.js"></script>
@@ -20,6 +28,10 @@
 			<h1>Doctors Management</h1>
 				
 			<form id="formDoctor" name="formDoctor" method="post" action="Doctors.jsp">
+				
+				Doctor ID:	
+				<input id="doctorID" name="doctorID" type="text" value="DOC" class="form-control form-control-sm" >
+				<br>
 				
 				Hospital Name:	
 				<input id="hospitalName" name="hospitalName" type="text" class="form-control form-control-sm" >

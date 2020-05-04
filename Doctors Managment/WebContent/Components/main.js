@@ -47,12 +47,13 @@ $(document).on("click", "#btnSave", function(event)
 $(document).on("click", ".btnUpdate", function(event)
 {
 	$("#hidDoctorIDSave").val($(this).closest("tr").find('#hidDoctorIDUpdate').val());
-	$("#hospitalName").val($(this).closest("tr").find('td:eq(0)').text());
-	$("#docName").val($(this).closest("tr").find('td:eq(1)').text());
-	$("#age").val($(this).closest("tr").find('td:eq(2)').text());
-	$("#spec").val($(this).closest("tr").find('td:eq(3)').text());
-	$("#arrive").val($(this).closest("tr").find('td:eq(4)').text());
-	$("#leave").val($(this).closest("tr").find('td:eq(5)').text());
+	$("#doctorID").val($(this).closest("tr").find('td:eq(0)').text());
+	$("#hospitalName").val($(this).closest("tr").find('td:eq(1)').text());
+	$("#docName").val($(this).closest("tr").find('td:eq(2)').text());
+	$("#age").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#spec").val($(this).closest("tr").find('td:eq(4)').text());
+	$("#arrive").val($(this).closest("tr").find('td:eq(5)').text());
+	$("#leave").val($(this).closest("tr").find('td:eq(6)').text());
 });
 
 
@@ -138,6 +139,11 @@ function validateItemForm()
 	if ($("#hospitalName").val().trim() == "")
 	{
 		return "Insert Hospital Name.";
+	}
+	
+	if ($("#doctorID").val().trim() == "")
+	{
+		return "Insert Doctor ID.";
 	}
 	
 	if ($("#docName").val().trim() == "")

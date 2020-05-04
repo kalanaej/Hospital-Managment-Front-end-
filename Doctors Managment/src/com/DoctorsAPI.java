@@ -41,7 +41,8 @@ public class DoctorsAPI extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String output = doc.insertDoctor(request.getParameter("hospitalName"),
+		String output = doc.insertDoctor(request.getParameter("doctorID"),
+										 request.getParameter("hospitalName"),
 				  						 request.getParameter("docName"),
 									     request.getParameter("age"),
 									     request.getParameter("spec"),
@@ -59,6 +60,7 @@ public class DoctorsAPI extends HttpServlet {
 		Map paras = getParasMap(request);
 		
 		String output = doc.updateDoctor(paras.get("hidDoctorIDSave").toString(),
+										 paras.get("doctorID").toString(),
 										 paras.get("hospitalName").toString(),
 										 paras.get("docName").toString(),
 										 paras.get("age").toString(),
