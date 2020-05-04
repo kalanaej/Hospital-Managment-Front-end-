@@ -146,6 +146,13 @@ function validateItemForm()
 		return "Insert Doctor ID.";
 	}
 	
+	var doctorID = $("#doctorID").val().trim();
+	
+	if (doctorID == "DOC")
+	{
+		return "You have to enter number After DOC";
+	}
+	
 	if ($("#docName").val().trim() == "")
 	{
 		return "Insert Doctor Name.";
