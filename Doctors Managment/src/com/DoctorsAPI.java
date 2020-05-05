@@ -66,7 +66,7 @@ public class DoctorsAPI extends HttpServlet {
 										 paras.get("age").toString(),
 										 paras.get("spec").toString().replace('+',' '),
 										 paras.get("arrive").toString().replace('+',' '),
-										 paras.get("leave").toString()).replace('+',' ');
+										 paras.get("leave").toString().replace('+',' '));
 		
 		response.getWriter().write(output);
 	}

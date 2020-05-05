@@ -47,7 +47,7 @@ public class Doctor {
 		}
 		catch (Exception e)
 		{
-			output = "{\"status\":\"error\", \"data\": \"Error while inserting the item.\"}";
+			output = "{\"status\":\"error\", \"data\": \"Error while inserting the doctor.\"}";
 			System.err.println(e.getMessage());
 		}
 		
@@ -99,7 +99,6 @@ public class Doctor {
 				String arrive = rs.getString("ArriveTime");
 				String leave = rs.getString("LeaveTime");
 				
-				//docName = docName.replace('+',' ');
 				
 				// Add into the html table
 				output += "<tr><td><input id='hidDoctorIDUpdate'name='hidDoctorIDUpdate' type='hidden' value='" + ID + "'>" + doctorID + "</td>";
@@ -148,14 +147,6 @@ public class Doctor {
 				return "Error while connecting to the database for updating.";
 			}
 			
-			/*String query1 = "select Name from hospital_tbl";
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(query1);
-			
-			if(rs.next()){
-				hospitalName = rs.getString("Name");
-			}*/
-			
 			// create a prepared statement
 			String query = "UPDATE doctors SET DoctorID = ?, HospitalName = ?, DoctorName = ? , Age = ?, Specialization = ?, ArriveTime = ?, LeaveTime = ? WHERE ID = ?";
 			
@@ -180,7 +171,7 @@ public class Doctor {
 		}
 		catch (Exception e)
 		{
-			output = "{\"status\":\"error\", \"data\": \"Error while updating the item.\"}";
+			output = "{\"status\":\"error\", \"data\": \"Error while updating the doctor.\"}";
 			System.err.println(e.getMessage());
 		}
 		
@@ -220,7 +211,7 @@ public class Doctor {
 		}
 		catch (Exception e)
 		{
-			output = "{\"status\":\"error\", \"data\": \"Error while deleting the item.\"}";
+			output = "{\"status\":\"error\", \"data\": \"Error while deleting the doctor.\"}";
 			System.err.println(e.getMessage());
 		}
 		
