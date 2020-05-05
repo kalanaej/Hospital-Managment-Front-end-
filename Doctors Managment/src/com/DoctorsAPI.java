@@ -61,12 +61,12 @@ public class DoctorsAPI extends HttpServlet {
 		
 		String output = doc.updateDoctor(paras.get("hidDoctorIDSave").toString(),
 										 paras.get("doctorID").toString(),
-										 paras.get("hospitalName").toString(),
-										 paras.get("docName").toString(),
+										 paras.get("hospitalName").toString().replace('+',' '),
+										 paras.get("docName").toString().replace('+',' '),
 										 paras.get("age").toString(),
-										 paras.get("spec").toString(),
-										 paras.get("arrive").toString(),
-										 paras.get("leave").toString());
+										 paras.get("spec").toString().replace('+',' '),
+										 paras.get("arrive").toString().replace('+',' '),
+										 paras.get("leave").toString()).replace('+',' ');
 		
 		response.getWriter().write(output);
 	}
