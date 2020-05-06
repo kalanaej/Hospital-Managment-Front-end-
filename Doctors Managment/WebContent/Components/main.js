@@ -136,6 +136,13 @@ function onItemDeleteComplete(response, status)
 //CLIENTMODEL=======================================================================
 function validateItemForm()
 {
+	var regexp = /[^a-zA-Z]/g;
+	
+	if ($("#hospitalName").val().trim().match(regexp))
+	{
+		return "Hospital Name cannot be consist of numbers";
+	}
+	
 	if ($("#hospitalName").val().trim() == "")
 	{
 		return "Insert Hospital Name.";
@@ -150,7 +157,12 @@ function validateItemForm()
 	
 	if (doctorID == "DOC")
 	{
-		return "You have to enter number After DOC";
+		return "You have to enter number After DOC in Doctor ID field";
+	}
+	
+	if ($("#docName").val().trim().match(regexp))
+	{
+		return "Doctor Name cannot be consist of numbers";
 	}
 	
 	if ($("#docName").val().trim() == "")
@@ -175,6 +187,11 @@ function validateItemForm()
 	if (age > 75 || age < 25)
 	{
 		return "Age should be between 25 and 75";
+	}
+	
+	if ($("#spec").val().trim().match(regexp))
+	{
+		return "Specialization field cannot be consist of numbers";
 	}
 	
 	if ($("#spec").val().trim() == "")
